@@ -1,5 +1,5 @@
-export interface TodoType{
+export interface ITask{
     id: number;
     text: string;
-    done: boolean;
+    isChecked: boolean;
 }

@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    body,
+    input,
+    textarea,
+    button {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    input:focus {
+        outline: transparent;
+    }
+
+    input[type="text"],
+    button[type="submit"] {
+        transform: translateY(-50%);
+        transition: all .2s;
+        line-height: 0;
+        border: 0;
+    }
+
+    /* task overflow scrollbar costumization */
+    /* width */
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #262626;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #4EA8DE;
+        /* border-radius: 5px; */
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #1E6F9F;
+    }
+}
