@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-
     body,
     input,
     textarea,
@@ -15,6 +14,7 @@
 
     input:focus {
         outline: transparent;
+        border-color: #5E60CE;
     }
 
     input[type="text"],
@@ -22,7 +22,6 @@
         transform: translateY(-50%);
         transition: all .2s;
         line-height: 0;
-        border: 0;
     }
 
     /* task overflow scrollbar costumization */
