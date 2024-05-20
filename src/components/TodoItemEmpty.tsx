@@ -1,6 +1,6 @@
 import clipboardIcon from "../assets/clipboard.png";
 
-export const TodoEmpty = () => {
+export const TodoItemEmpty = () => {
   return (
     <div className="flex flex-col items-center border-t border-solid border-t-base-gray-400 rounded-t-lg p-16 gap-4">
       <figure>

@@ -3,7 +3,7 @@ type Props = React.DetailedHTMLProps<
   HTMLButtonElement
 >
 
-export function Button({ children, ...props }: Props) {
+export function BaseButton({ children, ...props }: Props) {
   return (
     <button
         {...props}

@@ -1,5 +1,5 @@
 export interface ITask{
-    id: string | number;
+    id: string;
     text: string;
     isChecked: boolean;
 }
