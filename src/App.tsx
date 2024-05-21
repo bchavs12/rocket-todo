@@ -35,14 +35,21 @@ function App() {
 
   const handleDeleteTask = (idToDelete: string) => {
     const filteredTasks = tasks.filter((task) => task.id !== idToDelete)
-
     // Criar modal e mostrar para comfirmar a remoção da task
 
     setTasks(filteredTasks) 
   }
 
-  const handleToggleTask = () => {
+  const handleToggleTask = ({id, newCheckedValue}:{id: string, newCheckedValue: boolean}) => {
+      const updatedTaskChecked = tasks.map((task) => {
+        if(task.id === id){
+          return {...task, isChecked:newCheckedValue }
+        }
 
+        return { ...task }
+      })
+
+      setTasks(updatedTaskChecked)
   }
 
   const checkedTasksCounter = () => {
@@ -74,17 +81,20 @@ function App() {
           </BtnAddTask>
         </form>
         <section className="mt-16">
-          <TodoItemInfo tasksCounterCreated={tasks.length} />
+          <TodoItemInfo 
+            tasksCounterCreated={tasks.length} 
+          />
           <div className="min-h-28 flex flex-col gap-3 overflow-auto">
-            {tasks.map(task => {
+            {tasks.length > 0 ? tasks.map(task => {
               return (
                 <TodoItem 
                   data={task} 
                   key={task.id}
                   onDeleteTask={handleDeleteTask}
+                  onToggleTask={handleToggleTask}
                 />
               )
-            })}
+            }) : <TodoItemEmpty/>}
           </div>
         </section>
       </main>
