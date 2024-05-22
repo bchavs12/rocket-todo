@@ -41,20 +41,24 @@ function App() {
   }
 
   const handleToggleTask = ({id, newCheckedValue}:{id: string, newCheckedValue: boolean}) => {
-      const updatedTaskChecked = tasks.map((task) => {
+     const updatedTask = tasks.map(task => {
         if(task.id === id){
-          return {...task, isChecked:newCheckedValue }
+          return {...task, isChecked: newCheckedValue}
         }
 
-        return { ...task }
-      })
+        return {...task}
+     })
 
-      setTasks(updatedTaskChecked)
+     setTasks(updatedTask);
   }
 
-  const checkedTasksCounter = () => {
+  const counterTodoChecked = tasks.reduce((prevValue, currentValue) => {
+    if(currentValue.isChecked){
+      return prevValue + 1
+    }
 
-  }
+    return prevValue;
+  }, 0)
 
   const inputValidation = inputValue.length < 5;
   return (
@@ -82,7 +86,8 @@ function App() {
         </form>
         <section className="mt-16">
           <TodoItemInfo 
-            tasksCounterCreated={tasks.length} 
+            tasksCounterCreated={tasks.length}
+            counterTodoChecked={counterTodoChecked} 
           />
           <div className="min-h-28 flex flex-col gap-3 overflow-auto">
             {tasks.length > 0 ? tasks.map(task => {

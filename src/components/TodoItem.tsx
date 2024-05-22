@@ -30,7 +30,7 @@ export const TodoItem = ({
   return (
     <div className="flex items-center justify-between gap-3  bg-base-gray-500 p-4 border border-solid border-base-gray-400 rounded-lg">
       <div className="flex gap-2">
-        <label htmlFor="checkbox" className="flex gap-2" onClick={handleTaskToggle}>
+        <label htmlFor="checkbox" className="flex gap-2 cursor-pointer" onClick={handleTaskToggle}>
           <input
             type="checkbox"
             readOnly
@@ -38,7 +38,7 @@ export const TodoItem = ({
             checked={data.isChecked}
           />
           <span
-            className={`w-[18px] h-[18px] flex justify-center items-center rounded-full cursor-pointer ${
+            className={`w-[18px] h-[18px] flex justify-center items-center rounded-full ${
               data.isChecked
                 ? "border-none bg-product-purple-dark text-base-gray-100 hover:bg-product-purple"
                 : "border-2 hover:bg-product-blue-dark"
